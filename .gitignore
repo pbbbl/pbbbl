@@ -1,4 +1,5 @@
-**/_*
+**/_**
+build
 **/*.config.codekit3
 **/*.runtimeconfig.json
 **/*.txt
