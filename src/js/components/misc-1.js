@@ -140,28 +140,41 @@ function setFormValues(user) {
 var ranShowIf = false;
 
 function at$(callback){
-    if(typeof $ != 'undefined' && callback){
-        return $(function(){ callback() })
+    if(typeof $ == 'undefined'){
+        $ = undefined;
+        window.addEventListener('$',function(){
+            if(typeof $ == "undefined"){
+                let $int = setInterval(checkFor$,50);
+                function checkFor$(){
+                    if(typeof $ != 'undefined' && typeof $ ){
+                        clearInterval($int);
+                        $(function(){
+                            callback()
+                        });
+                    }
+                }
+            }
+            if(typeof $ != "undefined"){
+           
+                   return $(function () {
+                       callback();
+                   });
+            }
+            let $$ready = false;
+            while(!$ || typeof $ == 'undefined' || $ == 'undefined') {
+                $$ready = true;
+            }   
+            while($$ready){
+                return $(function(){
+                    callback();
+                });
+            }
+        });
+    } else {
+        return callback($);
     }
-    window.addEventListener('$',function(){
-
-        if($ && callback){
-       
-               return $(function () {
-                   callback();
-               });
-        }
-        let $$ready = false;
-        while(!$ || typeof $ == 'undefined' || $ == 'undefined') {
-            $$ready = true;
-        }   
-        while($$ready){
-            return $(function(){
-                callback();
-            });
-        }
-    });
 }
+
 function onAuthorized_inHead(){
     campus.addEventListener('authorized', (event) => {
         return runPostIfShow(event.detail.user);

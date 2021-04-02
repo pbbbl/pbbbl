@@ -1,3 +1,4 @@
+console.log('v-0.3.3');
 var postItem, db, dbItems;
 var proPost = false;
 var dbData = {
@@ -23,7 +24,6 @@ const app = {
 const call$ = new CustomEvent('$');
 function jq$(){
     window.dispatchEvent(call$);
-
 }
 
 // @codekit-append "./helpers/events.js";
