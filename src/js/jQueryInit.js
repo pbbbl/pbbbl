@@ -9,5 +9,4 @@ window.addEventListener('authorized', function(event) {
 
 $(function(){
     jq$();
-
 });
