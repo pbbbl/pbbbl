@@ -20,10 +20,22 @@ const app = {
     auth: null,
     user: null
 };
-
-const call$ = new CustomEvent('$');
-function jq$(){
-    window.dispatchEvent(call$);
+const $onReady = (callback) =>{
+    console.log('$onReadyRan');
+    if(typeof $ != 'undefined'){
+        return callback($);
+    }
+    window.addEventListener('$',e=>{
+        var _$ = e.details.$;
+        while( typeof _$ != 'undefined'){
+            function $runCallback(c){
+                return c(_$);
+            }
+            return $runCallback(()=>{
+                return callback(newJquery);
+            })
+        }
+    });
 }
 
 // @codekit-append "./helpers/events.js";
