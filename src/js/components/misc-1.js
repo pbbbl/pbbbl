@@ -138,42 +138,12 @@ function setFormValues(user) {
 // 
 
 var ranShowIf = false;
-
-function at$(callback){
-    if(typeof $ == 'undefined'){
-        $ = undefined;
-        window.addEventListener('$',function(){
-            if(typeof $ == "undefined"){
-                let $int = setInterval(checkFor$,50);
-                function checkFor$(){
-                    if(typeof $ != 'undefined' && typeof $ ){
-                        clearInterval($int);
-                        $(function(){
-                            callback()
-                        });
-                    }
-                }
-            }
-            if(typeof $ != "undefined"){
-           
-                   return $(function () {
-                       callback();
-                   });
-            }
-            let $$ready = false;
-            while(!$ || typeof $ == 'undefined' || $ == 'undefined') {
-                $$ready = true;
-            }   
-            while($$ready){
-                return $(function(){
-                    callback();
-                });
-            }
-        });
-    } else {
-        return callback($);
+function $get(){
+    while(typeof $ != 'undefined'){
+        return $;
     }
 }
+
 
 function onAuthorized_inHead(){
     campus.addEventListener('authorized', (event) => {
@@ -184,7 +154,10 @@ function onAuthorized_inHead(){
     awaitUserData();
 }
 
-at$(onAuthorized_inHead);
+$onReady(function(_$){
+    console.log('head running with $ working',$);
+    onAuthorized_inHead();
+});
 
 // 
 function awaitUserData() {
