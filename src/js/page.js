@@ -57,7 +57,12 @@ function addItem(data) {
         fields: [],
         ...data
     }
-    var pageSlug = window.location.href.split('/');
+    var pageSlug;
+    if (window.location.href.indexOf('/') > -1) {
+        pageSlug = window.location.href.split('/');
+    } else {
+        pageSlug = [''];
+    }
     pageSlug = pageSlug[pageSlug.length - 1];
     if (pageSlug === page.items[data.id].slug) {
         page.item = page.items[data.id];

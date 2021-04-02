@@ -1,1 +1,77 @@
-"use strict";function ownKeys(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);t&&(o=o.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,o)}return r}function _objectSpread(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?ownKeys(Object(r),!0).forEach((function(t){_defineProperty(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):ownKeys(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function _defineProperty(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function authFailed(e){console.log("authFailed");var t=Cookies.get("_user")||!1;t&&Cookies.set("_lastCampusUser",t),Cookies.set("_user",!1),Cookies.remove("_user"),e||(e=encodeURI(window.location.href)),isDev||window.location.href.indexOf("test-campus")>-1&&window.location.href.indexOf("dev=true")>-1?window.location.replace("https://".concat(authDomain,"/login?next=").concat(e)):window.location.replace("https://".concat(authDomain,"/login/"))}function dispatchAuth(e){window.dispatchEvent(new CustomEvent("authorized",{bubbles:!0,detail:{auth:e}}))}skillstruck=new SkillStruckPixel({id:"user-pixel",demo:auth.demo||!1,test:auth.isTest||!1,hosts:{live:"campus.skillstruck.com",test:"test-campus.skillstruck.com"},onUser:function onUser(e){return function checkUser(e){return auth.user={},auth.authorized=!0,auth.user=_objectSpread({},e),auth.user.pro=!!auth.user.premium,auth.user.basic=!auth.user.pro,auth.user.sessionId=auth.sessionId,auth.user.educator="student"!=auth.user.account,auth.user.student=!auth.user.student,auth.uid=auth.user.id||!1,auth.user.uid=auth.user.id||!1,Cookies.set("_user",JSON.stringify(auth.user).trim(),_objectSpread(_objectSpread({},auth.treat),{},{expires:1})),dispatchAuth(auth)}(e)},onFailed:function onFailed(){return authFailed("https://".concat(authDomain,"/homepage/login/"))}});
+"use strict";
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function authFailed(url) {
+  console.log('authFailed');
+  var lastUser = Cookies.get('_user') || false;
+
+  if (lastUser) {
+    Cookies.set('_lastCampusUser', lastUser);
+  }
+
+  Cookies.set('_user', false);
+  Cookies.remove('_user');
+
+  if (!url) {
+    url = encodeURI(window.location.href);
+  }
+
+  if (isDev || window.location.href.indexOf('test-campus') > -1 && window.location.href.indexOf('dev=true') > -1) {
+    window.location.replace("https://".concat(authDomain, "/login?next=").concat(url));
+    return;
+  }
+
+  window.location.replace("https://".concat(authDomain, "/login/"));
+  return;
+}
+
+function dispatchAuth(validAuthData) {
+  window.dispatchEvent(new CustomEvent("authorized", {
+    bubbles: true,
+    detail: {
+      auth: validAuthData
+    }
+  }));
+}
+
+(function () {
+  skillstruck = new SkillStruckPixel({
+    id: 'user-pixel',
+    demo: auth.demo || false,
+    test: auth.isTest || false,
+    hosts: {
+      live: 'campus.skillstruck.com',
+      test: 'test-campus.skillstruck.com'
+    },
+    onUser: function onUser(data) {
+      return checkUser(data);
+    },
+    onFailed: function onFailed() {
+      return authFailed("https://".concat(authDomain, "/homepage/login/"));
+    }
+  });
+
+  function checkUser(data) {
+    auth.user = {};
+    auth.authorized = true;
+    auth.user = _objectSpread({}, data);
+    auth.user.pro = auth.user.premium ? true : false;
+    auth.user.basic = !auth.user.pro;
+    auth.user.sessionId = auth.sessionId;
+    auth.user.educator = auth.user.account != 'student';
+    auth.user.student = !auth.user.student;
+    auth.uid = auth.user.id || false;
+    auth.user.uid = auth.user.id || false;
+    Cookies.set('_user', JSON.stringify(auth.user).trim(), _objectSpread(_objectSpread({}, auth.treat), {}, {
+      expires: 1
+    }));
+    return dispatchAuth(auth);
+  }
+})();
+
+

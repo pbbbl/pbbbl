@@ -19,6 +19,13 @@ const app = {
     auth: null,
     user: null
 };
+
+const call$ = new CustomEvent('$');
+function jq$(){
+    window.dispatchEvent(call$ready);
+
+}
+
 // @codekit-append "./helpers/events.js";
 
 

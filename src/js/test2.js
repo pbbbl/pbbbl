@@ -1,4 +1,4 @@
-< script type = "text/javascript" >
+
     awaitJquery(function() {
 
             var keys = Object.keys(page.items);
@@ -179,5 +179,4 @@
                                 }
 
                             }
-                        } <
-                        /script>
+                        } 

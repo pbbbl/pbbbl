@@ -6,3 +6,8 @@ window.addEventListener('authorized', function(event) {
         runAwaitJquery(authDetail)
     });
 });
+
+$(function(){
+    jq$();
+
+});

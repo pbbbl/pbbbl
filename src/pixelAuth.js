@@ -1,3 +1,4 @@
+
 function authFailed(url) {
     console.log('authFailed');
     const lastUser = Cookies.get('_user') || false;
