@@ -1,0 +1,17 @@
+nav.tabs-list-section:after {
+    padding-left: 20px;
+    display: block;
+    content: " ";
+}
+
+nav.user-dropdown {
+    position: fixed;
+    top: 60px;
+    bottom: auto;
+    left: auto;
+    right: 10px;
+    width: auto;
+    min-width: unset;
+    max-height: calc(100% - 80px);
+    overflow: auto;
+}
