@@ -1,0 +1,14 @@
+@import "scss/auth";
+@import "scss/spinner";
+@import "scss/ifSelectors";
+@import "scss/vote";
+@import "scss/misc-1";
+@import "scss/tabs";
+@import "scss/captivate";
+.campus-main {
+    @media only screen and (min-width: 992px) {
+        max-width: calc(100% - 320px);
+    }
+}
+
+@import "scss/pixel";
