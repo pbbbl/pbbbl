@@ -1,6 +1,6 @@
 const fs = require('fs');
 const files = [];
-const dist = './dist/';
+const dist = './releases/';
 
 fs.readdirSync(dist).forEach(name => {
     processFile(name);
