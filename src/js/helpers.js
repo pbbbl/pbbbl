@@ -22,7 +22,7 @@ const app = {
 
 const call$ = new CustomEvent('$');
 function jq$(){
-    window.dispatchEvent(call$ready);
+    window.dispatchEvent(call$);
 
 }
 

@@ -138,13 +138,39 @@ function setFormValues(user) {
 // 
 
 var ranShowIf = false;
-$(function () {
+
+at$(onAuthorized_inHead);
+function at$(callback){
+    if($ && callback){
+        return $(function(){ callback() })
+    }
+    window.addEventListener('$',function(){
+
+        if($ && callback){
+       
+               return $(function () {
+                   callback();
+               });
+        }
+        let $$ready = false;
+        while(!$ || typeof $ == 'undefined' || $ == 'undefined') {
+            $$ready = true;
+        }   
+        while($$ready){
+            return $(function(){
+                callback();
+            });
+        }
+    });
+}
+function onAuthorized_inHead(){
     campus.addEventListener('authorized', (event) => {
         return runPostIfShow(event.detail.user);
     });
 
     awaitUserData();
-});
+    // console.log('onAuthorized_inHead ran!');
+}
 function awaitUserData() {
     return setTimeout(function () {
 
@@ -156,7 +182,7 @@ function awaitUserData() {
             return runPostIfShow(auth.user, true);
         }
         return;
-    }, 250);
+    }, 50);
 }
 function runPostIfShow(authUser, timedOut) {
 
