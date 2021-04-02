@@ -1,4 +1,4 @@
-console.log('v-0.3.5');
+console.log('v-0.3.6');
 var postItem, db, dbItems;
 var proPost = false;
 var dbData = {
