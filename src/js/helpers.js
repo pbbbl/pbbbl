@@ -76,10 +76,10 @@ function runAwaiting(data) {
         for (var i = 0; i < awaiting.length; i++) {
             awaiting[i](data);
         }
-        if (i + 1 >= awaiting.length) {
+        // if (i + 1 >= awaiting.length) {
 
 
-        }
+        // }
     }
 }
 
