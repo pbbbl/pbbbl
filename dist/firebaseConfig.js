@@ -1,0 +1,1 @@
+"use strict";module.exports={apiKey:"AIzaSyClMcnekfl6EDULXhRytwokH6o98mFtk4M",authDomain:"skill-flow.firebaseapp.com",databaseURL:"https://skill-flow.firebaseio.com",projectId:"skill-flow",storageBucket:"skill-flow.appspot.com",messagingSenderId:"577800895406",appId:"1:577800895406:web:241b7b12caf2f52f83663f",measurementId:"G-WJ33V491KY"};

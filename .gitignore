@@ -1,3 +1,4 @@
+_private
 **/*.config.codekit3
 **/*.runtimeconfig.json
 **/*.txt
