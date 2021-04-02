@@ -139,9 +139,8 @@ function setFormValues(user) {
 
 var ranShowIf = false;
 
-at$(onAuthorized_inHead);
 function at$(callback){
-    if($ && callback){
+    if(typeof $ != 'undefined' && callback){
         return $(function(){ callback() })
     }
     window.addEventListener('$',function(){
@@ -168,9 +167,13 @@ function onAuthorized_inHead(){
         return runPostIfShow(event.detail.user);
     });
 
+    console.log('onAuthorized_inHead ran!');
     awaitUserData();
-    // console.log('onAuthorized_inHead ran!');
 }
+
+at$(onAuthorized_inHead);
+
+// 
 function awaitUserData() {
     return setTimeout(function () {
 
