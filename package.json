@@ -1,26 +1,24 @@
 {
-    "name": "root",
+    "name": "pbbbl",
+    "version:": "1.0.0",
     "private": true,
     "author": {
         "name": "Tyler Grow",
         "email": "tyler@pbbbl.com"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/pbbbl/clean"
-    },
+    "repository": "https://github.com/pbbbl/clean",
     "bugs": {
-        "url": "https://github.com/pbbbl/clean/issues"
+        "url": "https://github.com/pbbbl/pbbbl"
     },
-    "homepage": "https://github.com/pbbbl/clean#readme",
+    "homepage": "https://github.com/pbbbl/pbbbl ",
+    "scripts": {
+        "build": "lerna bootstrap && yarn diff && yarn v",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "v": "lerna version --conventional-commits --yes",
+        "diff": "lerna diff"
+    },
     "devDependencies": {
         "lerna": "^4.0.0"
-    },
-    "scripts": {
-        "build": "lerna bootstrap",
-        "serve": "npm run build && lerna run",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "each": "learna --exec $1"
     },
     "workspaces": [
         "packages/*"
