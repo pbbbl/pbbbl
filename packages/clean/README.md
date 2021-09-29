@@ -1,4 +1,4 @@
-# pbbbl/clean (clean-deep)
+# @pbbbl/clean (clean-deep)
 
 > Forked [clean-deep](https://github.com/nunofgs/clean-deep/tree/v3.4.0p) with new `fn` option for removing functions/methods. Traverses arrays and objects.
 
@@ -11,7 +11,7 @@ Removes _methods (functions)_ empty _objects_, _arrays_, empty _strings_, _NaN_,
 Download the repo to your root directory, and install via npm:
 
 ```
-npm i -S pbbbl/clean
+npm i -S @pbbbl/clean
 ```
 
 ## Usage
