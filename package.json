@@ -1,19 +1,28 @@
 {
-  "name": "skst-webflow",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tylergrow/campus-webflow.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tylergrow/campus-webflow/issues"
-  },
-  "homepage": "https://github.com/tylergrow/campus-webflow#readme"
+    "name": "pbbbl",
+    "private": true,
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "author": {
+        "name": "Tyler Grow",
+        "email": "tyler@pbbbl.com"
+    },
+    "repository": "https://github.com/pbbbl/pbbbl.git",
+    "bugs": {
+        "url": "https://github.com/pbbbl/pbbbl/issues"
+    },
+    "homepage": "https://github.com/pbbbl/pbbbl",
+    "scripts": {
+        "build": "lerna bootstrap && yarn diff && yarn v",
+        "v": "lerna version --conventional-commits --yes",
+        "diff": "lerna diff",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "lerna": "^4.0.0"
+    },
+    "workspaces": [
+        "packages/*"
+    ]
 }
