@@ -1,0 +1,79 @@
+<!--
+    
+<h4>{{item.naem}}</h4> 
+
+<form data-item="{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}" id="{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-data-form" class="d-none item-data-form">
+
+<input id="{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-library-input" name="library" value="{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"/>
+<script type="text/javascript">
+awaitJquery.push(function(data){ 
+			var hash = '#{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-library-input';
+      var item = $(hash) || false;
+      if(!item){
+
+        return;
+      }
+      if("{{wf {&quot;path&quot;:&quot;library-posts-collection:slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}" !== "vote"){
+
+				return item.parents('[data-vote]').remove();
+      }
+				return;
+    });
+</script>
+
+<script type="text/javascript">
+
+awaitJquery.push(function(data){
+
+  if((window.location.hostname ==- 'campus.skillstruck.com' &&  {{wf {&quot;path&quot;:&quot;never-use-is-example&quot;,&quot;type&quot;:&quot;Bool&quot;\} }} === true) || 
+  (window.location.href.indexOf("live=true") > -1 && {{wf {&quot;path&quot;:&quot;never-use-is-example&quot;,&quot;type&quot;:&quot;Bool&quot;\} }} === true)){
+  	var item = $('#{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-data-form') || false;
+    if(!item){
+
+      return;
+    }
+		return item.parents('[data-vote]').remove();
+  }
+  return;
+});
+
+</script>
+
+<input id="{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-uid" data-value="uid" value="">
+<script type="text/javascript">
+		awaitJquery.push(function(data){
+      var item = $('#{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-uid') || false;
+      if(!item){
+        return;
+      }
+			return $('#{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-uid').val(data.user.id);
+    });
+
+</script>
+<input id="{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-item-id" name="itemId" value="{{wf {&quot;path&quot;:&quot;item-id&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"/>
+<input id="{{wf {&quot;path&quot;:&quot;collectionid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-collection-id" name="itemId" value="{{wf {&quot;path&quot;:&quot;item-id&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"/>
+<input id="{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-slug" name="slug" value="{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"/>
+<input id="{{wf {&quot;path&quot;:&quot;itemid&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}-name" name="name" value="{{wf {&quot;path&quot;:&quot;name&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"/>
+
+</form>
+
+
+-->
+<!-- 
+<p class="card-body pb-20" aria-hidden if empty>
+    Empty
+</p> -->
+<!--
+<div data-require-season-active="true" class="vote-btn-wrapper w-condition-invisible">
+    <div aria-role="aside" tabindex="0" aria-label="Total Votes: 1" class="vote-btn show">
+        <div data-vote-text="true" class="vote-icon if-enabled"></div>
+        <div data-display-vote="true" class="vote-btn-text votes-display">1</div>
+    </div>
+</div>
+<div data-require-season-inactive="true" class="vote-btn-wrapper vote-disabled visible">
+    <div aria-role="aside" tabindex="0" aria-label="Total Votes: 1" class="vote-btn show">
+        <div data-vote-text="true" class="vote-icon if-enabled"></div>
+        <div data-display-vote="true" class="vote-btn-text votes-display">1</div>
+    </div>
+</div>
+-->

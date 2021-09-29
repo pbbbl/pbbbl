@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "pbbbl",
     "version:": "1.0.0",
     "private": true,
@@ -24,3 +25,23 @@
         "packages/*"
     ]
 }
+=======
+  "name": "skst-webflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylergrow/campus-webflow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylergrow/campus-webflow/issues"
+  },
+  "homepage": "https://github.com/tylergrow/campus-webflow#readme"
+}
+>>>>>>> parent of 10d4536 (to lerna)
